@@ -15,7 +15,7 @@ object ExtractUsersData {
         user(1),
         user(2).toInt,
         user(3).toInt,
-        user(4).toInt
+        user(4)
       )
     }
   }
@@ -27,7 +27,7 @@ object ExtractUsersData {
         StructField("Gender", StringType, false),
         StructField("Age", IntegerType, false),
         StructField("Occupation", IntegerType, false),
-        StructField("ZipCode", IntegerType, false)
+        StructField("ZipCode", StringType, false)
       )
     )
 

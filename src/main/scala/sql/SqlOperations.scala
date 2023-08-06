@@ -19,12 +19,12 @@ object SqlOperations extends App {
   /* Oldest Movie*/
   spark.sql(
       """
-        |Select
-        |MovieID,
-        |MovieName,
-        |Year
+        |Select *
         |From Movies
-        |Where Year < "1945"
+        |Where year =(
+        |Select min(year)
+        |from Movies
+        |)
         |""".stripMargin
     )
     .show(false)
@@ -75,7 +75,7 @@ object SqlOperations extends App {
         |Order By MovieID
         |""".stripMargin
     )
-    .show(20, false)
+    .show(20, truncate = false)
 
   spark.sql(
       """
